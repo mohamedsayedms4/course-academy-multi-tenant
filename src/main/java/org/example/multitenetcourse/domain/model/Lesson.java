@@ -1,6 +1,8 @@
 package org.example.multitenetcourse.domain.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -25,6 +27,7 @@ public class Lesson {
 
     @ManyToOne
     @JoinColumn(name = "subject_id", nullable = false)
+    @JsonBackReference
     private Subject subject;
 
 

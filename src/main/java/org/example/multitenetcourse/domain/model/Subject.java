@@ -1,6 +1,9 @@
 package org.example.multitenetcourse.domain.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.example.multitenetcourse.domain.model.constant.AcademicYear;
@@ -33,6 +36,7 @@ public class Subject {
     private Term term;
 
     @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Lesson> lessons = new ArrayList<>();
 
 
